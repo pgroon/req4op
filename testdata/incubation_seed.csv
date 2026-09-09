@@ -1,0 +1,14 @@
+temp_id,type,subject,status,relates_to,category,verification_method,description
+UN-1,User Need,UN-1 — Consistent incubation conditions for reliable assay results,New,,,,Stakeholder need: the lab requires stable incubation to trust assay results.
+UN-2,User Need,UN-2 — Instrument available throughout an 8-hour shift,New,,,,Stakeholder need: uptime across a full working shift.
+REQ-1,Requirement,REQ-1 — Maintain sample temperature at 37 C +/- 0.5 C during incubation,New,TC-1;RC-1;UN-1,Performance,Test,Rationale: temperature stability drives assay validity; Source: UN-1; Acceptance criteria: temperature stays within 37 +/- 0.5 C for the full cycle.
+REQ-2,Requirement,REQ-2 — Complete a standard incubation cycle within 30 minutes,New,TC-2;UN-1,Performance,Test,Rationale: throughput target for shift planning; Source: UN-1; Acceptance criteria: cycle completes in <= 30 min at nominal load.
+REQ-3,Requirement,REQ-3 — Achieve >= 99 percent availability across an 8-hour shift,New,UN-2,Reliability,Analysis,Rationale: uptime supports shift throughput; Source: UN-2; Acceptance criteria: measured availability >= 99 percent over 8 h. NOTE: intentionally left with no verification link (gap).
+REQ-4,Requirement,REQ-4 — Operator confirms reagent lot and expiry before each run,New,TC-3;UN-1,Process,Demonstration,Rationale: prevents use of expired reagents; Source: UN-1; Acceptance criteria: a run cannot start until lot and expiry are confirmed.
+REQ-5,Requirement,REQ-5 — Enclosure meets IEC 61010-1 protection against electric shock,New,,Safety,Inspection,Rationale: operator safety and regulatory compliance; Source: (none — intentionally unsourced orphan); Acceptance criteria: passes IEC 61010-1 inspection.
+REQ-6,Requirement,REQ-6 — Control software logs each run quickly and presents it in a user-friendly way,New,UN-1,Software,,"Rationale: operators need accessible run history; Source: UN-1; Acceptance criteria: (none). NOTE: intentionally vague wording ('quickly', 'user-friendly') and no verification (quality smell + gap)."
+TC-1,Test Case,TC-1 — Temperature-stability test,New,,,,Verifies REQ-1 by measuring chamber temperature across a full cycle.
+TC-2,Test Case,TC-2 — Cycle-time test,New,,,,Verifies REQ-2 by timing a standard incubation cycle at nominal load.
+TC-3,Test Case,TC-3 — Operator lot-confirmation walkthrough,New,,,,Demonstrates REQ-4 via an operator walkthrough of the pre-run check.
+TC-4,Test Case,TC-4 — Data-export format test,New,,,,Tests a data-export format. NOTE: intentionally traces to no requirement (unrequested downstream work).
+RC-1,Risk Control,RC-1 — Over-temperature cutoff,New,,,,Risk control for REQ-1: a hardware cutoff prevents reagent degradation on over-temperature.
